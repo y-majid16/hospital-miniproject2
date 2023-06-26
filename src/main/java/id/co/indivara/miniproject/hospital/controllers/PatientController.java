@@ -1,6 +1,5 @@
 package id.co.indivara.miniproject.hospital.controllers;
 
-import id.co.indivara.miniproject.hospital.entity.Doctor;
 import id.co.indivara.miniproject.hospital.entity.Patient;
 import id.co.indivara.miniproject.hospital.models.ResponseData;
 import id.co.indivara.miniproject.hospital.service.PatientService;

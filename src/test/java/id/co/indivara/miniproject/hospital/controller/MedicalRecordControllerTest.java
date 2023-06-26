@@ -1,14 +1,8 @@
 package id.co.indivara.miniproject.hospital.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import id.co.indivara.miniproject.hospital.controllers.TransactionAppointmentController;
 import id.co.indivara.miniproject.hospital.controllers.TransactionMedicalController;
 import id.co.indivara.miniproject.hospital.entity.*;
-import id.co.indivara.miniproject.hospital.repositories.DoctorRepository;
-import id.co.indivara.miniproject.hospital.repositories.PatientRepository;
-import id.co.indivara.miniproject.hospital.repositories.TransactionAppointmentRepository;
-import id.co.indivara.miniproject.hospital.repositories.TransactionMedicalRecordRepository;
-import id.co.indivara.miniproject.hospital.service.TransactionAppointmentService;
 import id.co.indivara.miniproject.hospital.service.TransactionMedicalRecordService;
 import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.Test;
@@ -43,14 +37,7 @@ class MedicalRecordControllerTest {
     @InjectMocks
     private TransactionMedicalController transactionMedicalController;
 
-    @Autowired
-    private TransactionMedicalRecordRepository transactionMedicalRecordRepository;
 
-    @Autowired
-    private PatientRepository patientRepository;
-
-    @Autowired
-    private DoctorRepository doctorRepository;
 
     @Before("")
     public void setUp() {
