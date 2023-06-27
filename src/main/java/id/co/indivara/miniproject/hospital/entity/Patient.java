@@ -19,37 +19,31 @@ public class Patient {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    @Column(name = "patient_id", nullable = false)
+    @Column(name = "patient_id")
     private String patientId;
 
-    @Column(name = "patient_name")
+    @Column(name = "patient_name", nullable = false)
     @NotBlank
     private String patientName;
 
-    @Column(name = "identity_card_number")
-    @NotEmpty
+    @Column(name = "identity_card_number", unique = true)
     private String identityCardNumber;
 
     @Email
     private String email;
 
     @Column(name = "phone_number")
-    @NotEmpty
     private String phoneNumber;
 
     @Column(name = "date_of_birth")
-    @NotEmpty
     private String dateOfBirth;
 
-    @NotEmpty
     private String gender;
 
     @Column(name = "blood_type")
-    @NotEmpty
     private String bloodType;
 
     @Column(name = "patient_height")
-    @NotEmpty
     private Integer patientHeight;
 
 

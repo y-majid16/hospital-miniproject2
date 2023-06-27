@@ -40,16 +40,8 @@ public class DoctorController {
 
     //update Doctor
     @PutMapping("/update")
-    public ResponseEntity<ResponseData<Doctor>> updateDoctor( String doctorId, @RequestBody @Valid Doctor doctor, Errors errors){
+    public ResponseEntity<ResponseData<Doctor>> updateDoctor( String doctorId, @RequestBody @Valid Doctor doctor){
         ResponseData<Doctor> responseData = new ResponseData<>();
-        if (errors.hasErrors()){
-            for (ObjectError error : errors.getAllErrors()) {
-                responseData.getMessages().add(error.getDefaultMessage());
-            }
-            responseData.setStatus(false);
-            responseData.setData(null);
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseData);
-        }
         responseData.setStatus(true);
         responseData.setData(doctorService.updateDoctor(doctorId,doctor));
         return ResponseEntity.ok(responseData);

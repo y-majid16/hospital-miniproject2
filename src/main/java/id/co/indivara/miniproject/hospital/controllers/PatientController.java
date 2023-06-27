@@ -38,17 +38,9 @@ public class PatientController {
     }
 
     //update Patient
-    @PutMapping("/update")
-    public ResponseEntity<ResponseData<Patient>> updatePatient( @RequestBody @Valid String patientId, Patient patient, Errors errors){
+    @PutMapping("/update/{patientId}")
+    public ResponseEntity<ResponseData<Patient>> updatePatient(@PathVariable("patientId") @RequestBody @Valid String patientId, Patient patient){
         ResponseData<Patient> responseData = new ResponseData<>();
-        if (errors.hasErrors()){
-            for (ObjectError error : errors.getAllErrors()) {
-                responseData.getMessages().add(error.getDefaultMessage());
-            }
-            responseData.setStatus(false);
-            responseData.setData(null);
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseData);
-        }
         responseData.setStatus(true);
         responseData.setData(patientService.updatePatient(patientId,patient));
         return ResponseEntity.ok(responseData);

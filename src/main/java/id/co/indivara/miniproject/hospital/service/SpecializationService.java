@@ -20,7 +20,7 @@ public class SpecializationService {
 
 
     public Specialization updateSpecialization(String specializationId, Specialization specialization) {
-        Specialization update = specializationRepository.findById(specialization.getSpecializationId()).orElse(null);
+        Specialization update = specializationRepository.findById(specialization.getSpecializationId()).get();
         if (update != null) {
             update.setSpecializationName(specialization.getSpecializationName());
             specializationRepository.save(specialization);

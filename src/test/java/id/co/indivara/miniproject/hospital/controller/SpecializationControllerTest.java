@@ -2,7 +2,6 @@ package id.co.indivara.miniproject.hospital.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import id.co.indivara.miniproject.hospital.controllers.SpecializationController;
-import id.co.indivara.miniproject.hospital.entity.MedicalRecord;
 import id.co.indivara.miniproject.hospital.entity.Specialization;
 import id.co.indivara.miniproject.hospital.repositories.SpecializationRepository;
 import id.co.indivara.miniproject.hospital.service.SpecializationService;

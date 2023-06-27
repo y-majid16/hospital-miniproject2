@@ -61,9 +61,9 @@ class AppointmentControllerTest {
     public void testCreateAppointment() throws Exception {
         // Mock data
         Appointment appointment = new Appointment();
-        appointment.setAppointmentId("4028818d88e6251f0188e627f07c0001");
-        appointment.setPatient(new Patient("4028818d88e5ff130188e6011d470001", "Abi","327324232222223","abi@gmail.com", "081323232323","1977-06-23","Man","B+",166,59,"Jln, Jakarta no 3","081883233232"));
-        appointment.setDoctor(new Doctor("4028818d88e6115d0188e6143e720000",new Specialization("4028818d88e5ff130188e60216590003","Penyakit Saraf"),"Richard","richard@gmail.com","08123232323","1997-03-12","Man", "Jln, Jakarta no 78"));
+        appointment.setAppointmentId("2c948a8688fae6230188fae72e9d0000");
+        appointment.setPatient(new Patient("2c948a8688fad57d0188fad59eec0000", "Abi","327324232222223","abi@gmail.com", "081323232323","1977-06-23","Man","B+",166,59,"Jln, Jakarta no 3","081883233232"));
+        appointment.setDoctor(new Doctor("2c948a8688fae0520188fae2e3ba0000",new Specialization("4028818d88e5ff130188e60216590003","Penyakit Saraf"),"Richard","richard@gmail.com","08123232323","1997-03-12","Man", "Jln, Jakarta no 78"));
         appointment.setComplaint("Complaint");
         appointment.setStartTime("09:30");
         appointment.setEndTime("10:00");

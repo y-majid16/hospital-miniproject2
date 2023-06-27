@@ -41,14 +41,6 @@ public class TreatmentController {
     @PutMapping("/update")
     public ResponseEntity<ResponseData<Treatment>> updateTreatment( @RequestBody @Valid  String treatmentId,Treatment treatment, Errors errors){
         ResponseData<Treatment> responseData = new ResponseData<>();
-        if (errors.hasErrors()){
-            for (ObjectError error : errors.getAllErrors()) {
-                responseData.getMessages().add(error.getDefaultMessage());
-            }
-            responseData.setStatus(false);
-            responseData.setData(null);
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseData);
-        }
         responseData.setStatus(true);
         responseData.setData(treatmentService.updateTreatment(treatmentId,treatment));
         return ResponseEntity.ok(responseData);

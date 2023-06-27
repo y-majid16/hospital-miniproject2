@@ -39,16 +39,8 @@ public class SpecializationController {
 
     //update Patient
     @PutMapping("/update")
-    public ResponseEntity<ResponseData<Specialization>> updateSpecialization(@RequestBody @Valid String specializationId, Specialization specialization, Errors errors){
+    public ResponseEntity<ResponseData<Specialization>> updateSpecialization(@RequestBody @Valid String specializationId, Specialization specialization){
         ResponseData<Specialization> responseData = new ResponseData<>();
-        if (errors.hasErrors()){
-            for (ObjectError error : errors.getAllErrors()) {
-                responseData.getMessages().add(error.getDefaultMessage());
-            }
-            responseData.setStatus(false);
-            responseData.setData(null);
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseData);
-        }
         responseData.setStatus(true);
         responseData.setData(specializationService.updateSpecialization(specializationId,specialization));
         return ResponseEntity.ok(responseData);
