@@ -19,6 +19,5 @@ public class ResponseData<T>{
 
     private T data;
 
-    private T message;
 
 }

@@ -41,7 +41,7 @@ public class PatientService {
 
 
     public Patient getIdPatient(String patientId) {
-        Patient patient=(Patient) patientRepository.findById(patientId).get();
+        Patient patient=(Patient) patientRepository.findById(patientId).orElseThrow(()->new RuntimeException("Data Not Found"));
         return patient;
     }
 

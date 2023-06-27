@@ -31,7 +31,7 @@ public class SpecializationService {
 
 
     public Specialization getIdSpecialization(String specializationId) {
-        Specialization specialization=(Specialization) specializationRepository.findById(specializationId).get();
+        Specialization specialization=(Specialization) specializationRepository.findById(specializationId).orElseThrow(()->new RuntimeException("Data Not Found"));
         return specialization;
     }
 

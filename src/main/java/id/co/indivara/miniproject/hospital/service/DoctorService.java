@@ -40,7 +40,7 @@ public class DoctorService {
     }
 
     public Doctor getIdDoctor(String doctorId) {
-        Doctor doctor=(Doctor)doctorRepository.findById(doctorId).get();
+        Doctor doctor=(Doctor)doctorRepository.findById(doctorId).orElseThrow(()->new RuntimeException("Data Not Found"));;
         return doctor;
     }
 

@@ -78,5 +78,20 @@ class SpecializationControllerTest {
                 .andExpect(status().isOk());
     }
 
+    @Test
+    public void testGetIdSpecialization() throws Exception {
+        // Mock data
+        Specialization specialization= specializationRepository.findById("4028818d88e0feaf0188e0ff41b70000").get();
+
+        // Mock service response
+        Mockito.when(specializationService.getIdSpecialization("4028818d88e0feaf0188e0ff41b70000"))
+                .thenReturn(specialization);
+
+        // Perform the Get request
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/doctorspecialization/find/4028818d88e0feaf0188e0ff41b70000")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(new ObjectMapper().writeValueAsString(specialization)))
+                .andExpect(status().isOk());
+    }
 
 }

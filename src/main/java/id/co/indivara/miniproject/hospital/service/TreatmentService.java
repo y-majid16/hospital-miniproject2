@@ -33,7 +33,7 @@ public class TreatmentService {
 
 
     public Treatment getIdTreatment(String treatmentId) {
-        Treatment treatment=(Treatment) treatmentRepository.findById(treatmentId).get();
+        Treatment treatment=(Treatment) treatmentRepository.findById(treatmentId).orElseThrow(()->new RuntimeException("Data Not Found"));
         return treatment;
     }
 
