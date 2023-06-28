@@ -53,7 +53,7 @@ class MedicalRecordControllerTest {
         // Mock data
         MedicalRecord medicalRecord = new MedicalRecord();
         medicalRecord.setAppointment(new Appointment("2c948a8688fae6230188fae72e9d0000",
-                new Patient("2c948a8688fad57d0188fad59eec0000", "Abi","327324232222223","abi@gmail.com", "081323232323","1977-06-23","Man","B+",166,59,"Jln, Jakarta no 3","081883233232"),
+                new Patient("2c948a8688fad57d0188fad59eec0000", "Abi","327324232222223","abi@gmail.com", "081323232323","1977-06-23","LAKI-LAKI","B+",166,59,"Jln, Jakarta no 3","081883233232"),
                 new Doctor("2c948a8688fae0520188fae2e3ba0000",new Specialization("4028818d88e5ff130188e60216590003","Penyakit Saraf"),"Richard","richard@gmail.com","08123232323","1997-03-12","Man", "Jln, Jakarta no 78"),"sakit","09:00","10:00",false));
         medicalRecord.setTreatment(new Treatment("2c948a8688fae6230188fae8bfbf0001","Pengobatan","Radang Usus","Kortikosteroid","3x Sehari"));
         medicalRecord.setNote("banyak gerak");

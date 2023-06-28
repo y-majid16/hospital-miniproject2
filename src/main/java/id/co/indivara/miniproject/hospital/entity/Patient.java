@@ -22,11 +22,11 @@ public class Patient {
     @Column(name = "patient_id")
     private String patientId;
 
-    @Column(name = "patient_name", nullable = false)
+    @Column(name = "patient_name", nullable = false, length = 100)
     @NotBlank
     private String patientName;
 
-    @Column(name = "identity_card_number", unique = true)
+    @Column(name = "identity_card_number", unique = true, length = 16)
     private String identityCardNumber;
 
     @Email
@@ -35,22 +35,23 @@ public class Patient {
     @Column(name = "phone_number", length = 12)
     private String phoneNumber;
 
-    @Column(name = "date_of_birth")
+    @Column(name = "date_of_birth", length = 25)
     private String dateOfBirth;
 
+    @Column(length = 9)
     private String gender;
 
-    @Column(name = "blood_type")
+    @Column(name = "blood_type", length = 3)
     private String bloodType;
 
-    @Column(name = "patient_height")
+    @Column(name = "patient_height", length = 3)
     private Integer patientHeight;
 
 
-    @Column(name = "patient_weight")
+    @Column(name = "patient_weight", length = 3)
     private Integer patientWeight;
 
-
+    @Column(length = 200)
     private String address;
 
 

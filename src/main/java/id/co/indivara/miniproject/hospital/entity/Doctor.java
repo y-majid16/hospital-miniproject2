@@ -28,7 +28,7 @@ public class Doctor {
     @JoinColumn(name = "specialization_id")
     private Specialization specialization;
 
-    @Column(name = "doctor_name")
+    @Column(name = "doctor_name",length = 100)
     @NotEmpty
     private String name;
 
@@ -36,12 +36,12 @@ public class Doctor {
     @Email
     private String email;
 
-    @Size(max = 12)
-    @Column(name = "phone_number")
+    @NotNull
+    @Column(name = "phone_number", length = 12)
     private String phoneNumber;
 
 
-    @Column(name = "date_of_birth")
+    @Column(name = "date_of_birth", length = 25)
     @NotEmpty
     private String dateOfBirth;
 
@@ -49,5 +49,6 @@ public class Doctor {
     private String gender;
 
     @NotEmpty
+    @Column(length = 200)
     private String address;
 }
