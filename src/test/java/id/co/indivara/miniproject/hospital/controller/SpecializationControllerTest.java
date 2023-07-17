@@ -80,14 +80,30 @@ class SpecializationControllerTest {
     @Test
     public void testGetIdSpecialization() throws Exception {
         // Mock data
-        Specialization specialization= specializationRepository.findById("4028818d88e0feaf0188e0ff41b70000").get();
+        Specialization specialization= specializationRepository.findById("2c948a8688fad57d0188fadaa1e50002").get();
 
         // Mock service response
-        Mockito.when(specializationService.getIdSpecialization("4028818d88e0feaf0188e0ff41b70000"))
+        Mockito.when(specializationService.getIdSpecialization("2c948a8688fad57d0188fadaa1e50002"))
                 .thenReturn(specialization);
 
         // Perform the Get request
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/doctorspecialization/find/4028818d88e0feaf0188e0ff41b70000")
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/doctorspecialization/find/{specialization_id}","2c948a8688fad57d0188fadaa1e50002")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(new ObjectMapper().writeValueAsString(specialization)))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void testUpdateSpecialization() throws Exception {
+        // Mock data
+        Specialization specialization= specializationRepository.findById("2c948a8688fad57d0188fadaa1e50002").get();
+
+        // Mock service response
+        Mockito.when(specializationService.updateSpecialization("2c948a8688fad57d0188fadaa1e50002", new Specialization("2c948a8688fad57d0188fadaa1e50002", "Penyakit Hati")))
+                .thenReturn(specialization);
+
+        // Perform the Get request
+        mockMvc.perform(MockMvcRequestBuilders.put("/api/doctorspecialization/update")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(specialization)))
                 .andExpect(status().isOk());

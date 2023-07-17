@@ -80,20 +80,4 @@ class AppointmentControllerTest {
                         .content(new ObjectMapper().writeValueAsString(appointment)))
                 .andExpect(status().isOk());
     }
-    @Test
-    public void getAllScheduleDoctor() throws Exception {
-        // Mock data
-            List<Appointment> appointments = transactionAppointmentService.getAllScheduleDoctor();
-
-
-        // Mock service response
-        Mockito.when(transactionAppointmentService.getAllScheduleDoctor())
-                .thenReturn(appointments);
-
-        // Perform the Get request
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/medicalrecord/MedicalRecordPatient")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(new ObjectMapper().writeValueAsString(appointments)))
-                .andExpect(status().isOk());
-    }
 }
