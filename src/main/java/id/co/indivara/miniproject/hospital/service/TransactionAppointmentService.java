@@ -18,18 +18,18 @@ public class TransactionAppointmentService  {
     private PatientRepository patientRepository;
 
 
-    public Appointment createAppointment(Appointment appointment) {
-        Patient patient= patientRepository.findById(appointment.getPatient().getPatientId()).get();
-        Doctor doctor=doctorRepository.findById(appointment.getDoctor().getDoctorId()).get();
-        appointment.setPatient(patient);
-        appointment.setDoctor(doctor);
-        appointment.setRegisterStatus(false);
-        transactionAppointmentRepository.save(appointment);
-        return appointment;
-    }
-
-    public List<Appointment> getAllScheduleDoctor() {
-        List<Appointment> appointments = transactionAppointmentRepository.findAll();
-        return appointments;
-    }
+//    public Appointment createAppointment(Appointment appointment) {
+//        Patient patient= patientRepository.findById(appointment.getPatient().getPatientId()).get();
+//        Doctor doctor=doctorRepository.findById(appointment.getDoctor().getDoctorId()).get();
+//        appointment.setPatient(patient);
+//        appointment.setDoctor(doctor);
+//        appointment.setRegisterStatus(false);
+//        transactionAppointmentRepository.save(appointment);
+//        return appointment;
+//    }
+//
+//    public List<Appointment> getAllScheduleDoctor() {
+//        List<Appointment> appointments = transactionAppointmentRepository.findAll();
+//        return appointments;
+//    }
 }

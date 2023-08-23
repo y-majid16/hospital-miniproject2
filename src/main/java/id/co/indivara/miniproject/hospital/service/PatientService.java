@@ -3,6 +3,7 @@ package id.co.indivara.miniproject.hospital.service;
 import id.co.indivara.miniproject.hospital.entity.Patient;
 import id.co.indivara.miniproject.hospital.repositories.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,31 +11,34 @@ import java.util.List;
 @Service
 public class PatientService {
 
-    @Autowired
+    @Autowired(required = false)
     private PatientRepository patientRepository;
 
+    @Autowired
+    JdbcTemplate jdbc;
 
     public Patient createPatient(Patient patient) {
         return patientRepository.save(patient);
     }
 
 
-    public Patient updatePatient(String patientId, Patient patient) {
-        Patient update = patientRepository.findById(patient.getPatientId()).orElse(null);
+    public Integer updatePatient( Patient patient) {
+        Patient update = patientRepository.findById(patient.getPatientId()).get();
         if (update != null) {
-            update.setPatientName(patient.getPatientName());
-            update.setIdentityCardNumber(patient.getIdentityCardNumber());
-            update.setEmail(patient.getEmail());
-            update.setPhoneNumber(patient.getPhoneNumber());
-            update.setDateOfBirth(patient.getDateOfBirth());
-            update.setGender(patient.getGender());
-            update.setBloodType(patient.getBloodType());
-            update.setPatientHeight(patient.getPatientHeight());
-            update.setPatientWeight(patient.getPatientWeight());
-            update.setAddress(patient.getAddress());
-            update.setEmergencyContactNumber(patient.getEmergencyContactNumber());
-            patientRepository.save(patient);
-            return update;
+            return jdbc.update("UPDATE mst_patients SET patient_name=?, identity_card_number=?," +
+                            "email=?,phone_number=?,date_of_birth=?,gender=?,blood_type=?,patient_height=?,patient_weight=?," +
+                            "address=? WHERE patient_id=?",
+                    patient.getPatientName(),
+                    patient.getIdentityCardNumber(),
+                    patient.getEmail(),
+                    patient.getPhoneNumber(),
+                    patient.getDateOfBirth(),
+                    patient.getGender(),
+                    patient.getBloodType(),
+                    patient.getPatientHeight(),
+                    patient.getPatientWeight(),
+                    patient.getAddress(),
+                    patient.getPatientId());
         }
         throw new RuntimeException("Patient does not Exist.");
     }

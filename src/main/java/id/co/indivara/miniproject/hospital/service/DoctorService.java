@@ -17,6 +17,7 @@ public class DoctorService {
     @Autowired
     private SpecializationRepository specializationRepository;
 
+
     public Doctor createDoctor(Doctor doctor) {
         Specialization specialization = specializationRepository.findById(doctor.getSpecialization().getSpecializationId()).get();
         doctor.setSpecialization(specialization);

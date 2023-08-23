@@ -19,5 +19,4 @@ public class ResponseData<T>{
 
     private T data;
 
-
 }

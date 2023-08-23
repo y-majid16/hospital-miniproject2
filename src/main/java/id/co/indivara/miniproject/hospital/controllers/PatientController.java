@@ -37,12 +37,12 @@ public class PatientController {
         return ResponseEntity.ok(responseData);
     }
 
-    //update Patient
+//    update Patient
     @PutMapping("/update/{patientId}")
     public ResponseEntity<ResponseData<Patient>> updatePatient(@PathVariable("patientId") @RequestBody @Valid String patientId, Patient patient){
         ResponseData<Patient> responseData = new ResponseData<>();
         responseData.setStatus(true);
-        responseData.setData(patientService.updatePatient(patientId,patient));
+        responseData.setData(patient);
         return ResponseEntity.ok(responseData);
     }
 

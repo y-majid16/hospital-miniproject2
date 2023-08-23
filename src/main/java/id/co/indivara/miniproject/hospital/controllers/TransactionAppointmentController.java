@@ -18,27 +18,27 @@ import java.util.List;
 public class TransactionAppointmentController {
     @Autowired
     private TransactionAppointmentService transactionAppointmentService;
-    @PostMapping("/create")
-    public ResponseEntity<ResponseData<Appointment>> createAppointment(@RequestBody Appointment appointment, Errors errors){
-        ResponseData<Appointment> responseData = new ResponseData<>();
-        if (errors.hasErrors()){
-            for (ObjectError error : errors.getAllErrors()) {
-                responseData.getMessages().add(error.getDefaultMessage());
-            }
-            responseData.setStatus(false);
-            responseData.setData(null);
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseData);
-        }
-        responseData.setStatus(true);
-        responseData.setData(transactionAppointmentService.createAppointment(appointment));
-        return ResponseEntity.ok(responseData);
-    }
-
-    @GetMapping("/DoctorSchedule")
-    public ResponseEntity<ResponseData<List<Appointment>>> findAllDoctorSchedulefing(){
-        ResponseData<List<Appointment>> responseData = new ResponseData<>();
-        responseData.setStatus(true);
-        responseData.setData(transactionAppointmentService.getAllScheduleDoctor());
-        return ResponseEntity.ok(responseData);
-    }
+//    @PostMapping("/create")
+//    public ResponseEntity<ResponseData<Appointment>> createAppointment(@RequestBody Appointment appointment, Errors errors){
+//        ResponseData<Appointment> responseData = new ResponseData<>();
+//        if (errors.hasErrors()){
+//            for (ObjectError error : errors.getAllErrors()) {
+//                responseData.getMessages().add(error.getDefaultMessage());
+//            }
+//            responseData.setStatus(false);
+//            responseData.setData(null);
+//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseData);
+//        }
+//        responseData.setStatus(true);
+//        responseData.setData(transactionAppointmentService.createAppointment(appointment));
+//        return ResponseEntity.ok(responseData);
+//    }
+//
+//    @GetMapping("/DoctorSchedule")
+//    public ResponseEntity<ResponseData<List<Appointment>>> findAllDoctorSchedulefing(){
+//        ResponseData<List<Appointment>> responseData = new ResponseData<>();
+//        responseData.setStatus(true);
+//        responseData.setData(transactionAppointmentService.getAllScheduleDoctor());
+//        return ResponseEntity.ok(responseData);
+//    }
 }
